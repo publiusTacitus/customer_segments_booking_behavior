@@ -634,18 +634,12 @@ with col3:
     fig_lt_heat = create_lead_time_heatmap(lead_times)
     st.plotly_chart(fig_lt_heat, use_container_width=True, height=500)
 
+
 st.markdown("---")
-
-left, col4, col5, right = st.columns([2, 1, 1, 2])
-
-with col4:
-    st.link_button(
-        "View Full Project on GitHub",
-        "https://github.com/publiusTacitus/customer_segments_booking_behavior"
-    )
-
-with col5:
-    st.link_button(
-        "Author LinkedIn",
-        "https://www.linkedin.com/in/jan-heinrich-sch%C3%BCttler-64b872396/"
-    )
+st.markdown(
+    "<div style='text-align: center;'>"
+    "<a href='https://github.com/publiusTacitus/customer_segments_booking_behavior'>GitHub</a> • "
+    "<a href='https://www.linkedin.com/in/jan-heinrich-sch%C3%BCttler-64b872396/'>LinkedIn</a>"
+    "</div>",
+    unsafe_allow_html=True
+)

@@ -12,7 +12,7 @@ This project analyzes how different customer segments behave in an airline booki
 The dataset is **simulated but behaviorally realistic**, enabling meaningful analysis without relying on proprietary 
 data.
 
-🔗 **Live Dashboard:** [Streamlit App Link]()  
+🔗 **Live Dashboard:** [Streamlit App Link](https://customersegmentsbookingbehavior.streamlit.app/)  
 🔗 **Dataset Source:** [Simulated Airline Database Link](https://github.com/publiusTacitus/simulated_airline_database)
 
 ---
