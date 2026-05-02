@@ -641,7 +641,7 @@ left, col4, col5, right = st.columns([2, 1, 1, 2])
 with col4:
     st.link_button(
         "View Full Project on GitHub",
-        "https://github.com/publiusTacitus/"
+        "https://github.com/publiusTacitus/customer_segments_booking_behavior"
     )
 
 with col5:
