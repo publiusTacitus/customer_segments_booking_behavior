@@ -415,7 +415,7 @@ def create_cabin_heatmap(classes_):
     checkin = cabin_plot.pivot(index=CL["Age Group"], columns=CL["Cabin Class"], values=CL["Check-In Rate"]).iloc[::-1]
 
     heat.columns = (heat.columns.str.replace(r"\(\d+\)\s*", "", regex=True))
-    heat_text = heat.applymap(lambda x: fmt_1(x) if lang == "Deutsch" else f"{x:.1f}")
+    heat_text = heat.applymap(lambda x: fmt_1(x))
     checkin_text = checkin.applymap(fmt_1)
 
     heat_norm = (heat - heat.min()) / (heat.max() - heat.min())
@@ -487,9 +487,9 @@ def create_lead_time_heatmap(lead_times_):
     )
     below_base.columns = below_base.columns.map(S)
 
-    heat_text = heat.applymap(lambda x: fmt_2(x) if lang == "Deutsch" else f"{x:.2f}")
-    premium_text = premium.applymap(lambda x: fmt_1(x) if lang == "Deutsch" else f"{x:.1f}")
-    below_base_text = below_base.applymap(lambda x: fmt_1(x) if lang == "Deutsch" else f"{x:.1f}")
+    heat_text = heat.applymap(lambda x: fmt_2(x))
+    premium_text = premium.applymap(lambda x: fmt_1(x))
+    below_base_text = below_base.applymap(lambda x: fmt_1(x))
 
     custom_data = np.stack([premium_text.values, below_base_text.values], axis=-1)
 

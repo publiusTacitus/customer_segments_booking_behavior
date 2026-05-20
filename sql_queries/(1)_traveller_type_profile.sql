@@ -5,7 +5,7 @@ with booking_stats as (
         round(avg(bookings_per_customer) / ((max(flight_date) - min(flight_date)) / 365.25), 2)
             as avg_yrly_bkgs_per_cust,
         round(count(case when class_id != '(01) Economy' then 1 end) * 100.0 / count(*), 2) as premium_cabin_usage_pct,
-        round(100.0 * count(case when is_checked_in = TRUE and has_cancellation_refund = FALSE then 1 end)
+        round(100.0 * count(case when is_checked_in and has_cancellation_refund = FALSE then 1 end)
             / count(*) filter (where has_cancellation_refund = FALSE), 2) as avg_check_in_rate_pct,
         avg(flight_date::date - booking_time::date)::int as avg_bkg_lead_time_days,
         round(avg(price_paid / expd_avg_price), 2) as avg_final_to_base_price_ratio
