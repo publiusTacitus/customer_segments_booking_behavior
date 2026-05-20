@@ -535,17 +535,17 @@ def create_lead_time_heatmap(lead_times_):
 params = st.query_params
 
 if "lang" not in st.session_state:
-    if params.get("lang") == "de":
-        st.session_state.lang = "Deutsch"
-    else:
-        st.session_state.lang = "English"
-
-with st.container(border=False, gap=None, horizontal_alignment="center"):
-    lang = st.segmented_control(
-        "Language", ("English", "Deutsch"), label_visibility="collapsed", default=st.session_state.lang
+    st.session_state.lang = (
+        "Deutsch" if params.get("lang") == "de"
+        else "English"
     )
 
-    st.session_state.lang = lang
+with st.container(border=False, gap=None, horizontal_alignment="center"):
+    st.segmented_control(
+        "", ("English", "Deutsch"), key="lang", label_visibility="collapsed"
+    )
+
+    lang = st.session_state.lang
     st.query_params["lang"] = "de" if lang == "Deutsch" else "en"
 
     CL, S, CT, T, R, O = columns[lang], segments[lang], captions[lang], titles[lang], radios[lang], other[lang]
